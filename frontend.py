@@ -88,7 +88,8 @@ def configWindow(productIndex):
     ramLabel.grid(row=1, column=0, padx=10, pady=10)
 
     ramEntry = Entry(configWin)
-    ramEntry.insert(0, str(product.ram))  # Default value is the current RAM
+    # Default value is the current RAM
+    ramEntry.insert(0, str(product.getRam()))
     ramEntry.grid(row=1, column=1, padx=10, pady=10)
 
     cancelBtn = Button(configWin, text="Cancel", command=configWin.destroy)

@@ -26,6 +26,12 @@ class Laptop():
         """
         return self.price
 
+    def getRam(self):
+        """
+        Returns the ram of the laptop.
+        """
+        return self.ram
+
     def setRram(self, newRam):
         """
         Sets the ram of the laptop to the given value.
