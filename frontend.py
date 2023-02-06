@@ -21,6 +21,7 @@ def setupMainWin():
     """
     mainWin.title("Cart")
     mainWin.geometry("300x50")
+    mainWin.resizable(False, False)
     # The first column (list of products) needs to be bigger than the other
     mainWin.columnconfigure(index=0, weight=4)
 
@@ -76,6 +77,7 @@ def configWindow(productIndex):
     """
     configWin = Toplevel()
     configWin.geometry("400x150")
+    configWin.resizable(False, False)
 
     product = cart.getItemAt(productIndex)
     configWin.title("Configure {} {}".format(product.brand, product.model))
