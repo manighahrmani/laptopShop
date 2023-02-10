@@ -20,6 +20,18 @@ class Laptop():
         self.price = basePrice
         self.ram = 8
 
+    def getBrand(self):
+        """
+        Returns the brand of the laptop.
+        """
+        return self.brand
+
+    def getModel(self):
+        """
+        Returns the model of the laptop.
+        """
+        return self.model
+
     def getPrice(self):
         """
         Returns the price of the laptop.
@@ -32,7 +44,7 @@ class Laptop():
         """
         return self.ram
 
-    def setRram(self, newRam):
+    def setRam(self, newRam):
         """
         Sets the ram of the laptop to the given value.
         If newRam is not in the ramOptions dictionary, the ram is not changed.
@@ -108,7 +120,7 @@ class ShoppingCart():
         if index < len(self.items):
             item = self.items[index]
             oldPrice = item.getPrice()
-            item.setRram(ram)
+            item.setRam(ram)
             newPrice = item.getPrice()
             self.total = self.total - oldPrice + newPrice
 
