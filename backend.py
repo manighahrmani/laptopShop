@@ -47,13 +47,11 @@ class Laptop():
     def setRam(self, newRam):
         """
         Sets the ram of the laptop to the given value.
-        If newRam is not in the ramOptions dictionary, the ram is not changed.
         The price is updated to include the cost of the newRam.
         """
-        if newRam in ramOptions:
-            self.ram = newRam
-            costOfRam = ramOptions[newRam]
-            self.price = self.basePrice + costOfRam
+        self.ram = newRam
+        costOfRam = ramOptions[newRam]
+        self.price = self.basePrice + costOfRam
 
     def __str__(self):
         output = "{} {}".format(self.brand, self.model)
@@ -143,6 +141,9 @@ def testLaptop():
     print(laptop)
 
     laptop.setRam(16)
+    print(laptop)
+
+    laptop.setRam(24)
     print(laptop)
 
 
