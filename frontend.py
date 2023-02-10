@@ -80,7 +80,8 @@ def configWindow(productIndex):
     configWin.resizable(False, False)
 
     product = cart.getItemAt(productIndex)
-    configWin.title("Configure {} {}".format(product.brand, product.model))
+    configWin.title("Configure {} {}".format(
+        product.getBrand(), product.getModel()))
 
     prodTxt = Text(configWin, height=2, width=45)
     prodTxt.insert("1.0", "Configure {}".format(product))
