@@ -22,7 +22,6 @@ def setupMainWin():
     mainWin.title("Cart")
     mainWin.geometry("300x50")
     mainWin.resizable(False, False)
-    # The first column (list of products) needs to be bigger than the other
     mainWin.columnconfigure(index=0, weight=4)
 
     listBtn = Button(mainWin, text="List all products", command=listProducts)
@@ -42,22 +41,20 @@ def listProducts():
     Also display the total price of the cart at the bottom of `mainWin`.
     """
     numberOfProds = cart.getCartLength()
-    # 50px per product + 1 row of buttons + 1 row for the total
     height = 50 * (numberOfProds + 2)
     mainWin.geometry("400x{}".format(height))
 
-    for productIndex in range(numberOfProds):
+    productIndex = 1
+    for product in cart.getItems():
         mainWin.rowconfigure(index=productIndex+1, weight=1)
 
-        product = cart.getItemAt(productIndex)
         productTxt = Text(mainWin, height=2, width=50)
         productTxt.insert("1.0", str(product))
-        # Add the text to row `productIndex` + 1 (first row is for the buttons)
         productTxt.grid(row=productIndex + 1, column=0,
                         padx=10, pady=5, sticky="w")
 
-        def configCmd(i=productIndex):
-            configWindow(i)
+        def configCmd():
+            configWindow(product)
 
         configBtn = Button(mainWin, text="Configure", command=configCmd)
         configBtn.grid(row=productIndex + 1, column=1, padx=10, pady=5)
@@ -68,9 +65,9 @@ def listProducts():
     totalLabel.config(font=("TkDefaultFont", 12, "bold"))
 
 
-def configWindow(productIndex):
+def configWindow(product):
     """
-    Create a new window to configure the product at `productIndex` of `cart`.
+    Create a new window to configure the `product`.
     The window will contain a text, showing the product's information,
     The window will also contain an entry to change the RAM capacity.
     When the change is submitted, the list of products in `mainWin` will update.
@@ -79,7 +76,6 @@ def configWindow(productIndex):
     configWin.geometry("400x150")
     configWin.resizable(False, False)
 
-    product = cart.getItemAt(productIndex)
     configWin.title("Configure {} {}".format(
         product.getBrand(), product.getModel()))
 
@@ -91,7 +87,6 @@ def configWindow(productIndex):
     ramLabel.grid(row=1, column=0, padx=10, pady=10)
 
     ramEntry = Entry(configWin)
-    # Default value is the current RAM
     ramEntry.insert(0, str(product.getRam()))
     ramEntry.grid(row=1, column=1, padx=10, pady=10)
 
@@ -100,14 +95,14 @@ def configWindow(productIndex):
 
     def submitCmd():
         newRam = int(ramEntry.get())
-        cart.setRamOfItem(productIndex, newRam)
-        listProducts()  # Refresh the list of products
-        configWin.destroy()  # Close the config window
+        product.setRam(newRam)
+        listProducts()
+        configWin.destroy()
 
     submitBtn = Button(configWin, text="Submit", command=submitCmd)
     submitBtn.grid(row=2, column=1, padx=10, pady=2)
 
-    configWin.mainloop()  # Start the event loop for the config window
+    configWin.mainloop()
 
 
 def main():
