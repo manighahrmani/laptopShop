@@ -1,5 +1,5 @@
-# laptopShop
-A simple GUI for a laptop shop written in Python and using Tkinter.
+# laptopShop (for Practical 14 - purposefully broken!)
+This is a copy of the original repository for the laptop shop project. It has been modified to contain several bugs and errors. The purpose of this repository is to be used in practical 14 of the Programming module.
 
 ## Requirements
 * Python 3.6 or higher ([download Python here](https://www.python.org/downloads/) or use the one on [AppsAnywhere](https://appsanywhere.port.ac.uk))
