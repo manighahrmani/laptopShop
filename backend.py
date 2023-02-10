@@ -69,7 +69,7 @@ class ShoppingCart():
     The total price is the sum of the prices of the items.
     """
 
-    def __init__(self):
+    def init(self):
         self.items = []
         self.total = 0
 
@@ -117,12 +117,11 @@ class ShoppingCart():
         """
         Sets the ram of the item at the given index to the given value.
         """
-        if index < len(self.items):
-            item = self.items[index]
-            oldPrice = item.getPrice()
-            item.setRam(ram)
-            newPrice = item.getPrice()
-            self.total = self.total - oldPrice + newPrice
+        item = self.items[index]
+        oldPrice = item.getPrice()
+        item.setRam(ram)
+        newPrice = item.getPrice()
+        self.total = self.total - oldPrice + newPrice
 
     def __str__(self):
         output = "Shopping cart contains:\n"
@@ -130,3 +129,33 @@ class ShoppingCart():
             output += "{}\n".format(item)
         output += "Total: £{:.2f}".format(self.total)
         return output
+
+
+def testLaptop():
+    """
+    Tests the Laptop class.
+    """
+    laptop = Laptop("Dell", "XPS 13", 999.99)
+    print("Price: £{:.2f}".format(laptop.getPrice()))
+    print("Brand: {}".format(laptop.getBrand()))
+    print("Model: {}".format(laptop.getModel()))
+    print("RAM: {}GB".format(laptop.getRam()))
+    print(laptop)
+
+    laptop.setRam(16)
+    print(laptop)
+
+
+def testShoppingCart():
+    """
+    Tests the ShoppingCart class.
+    """
+    cart = ShoppingCart()
+    cart.addLaptop("Dell", "XPS 13", 999.99)
+    cart.addLaptop("Apple", "MacBook Pro", 1499.99)
+    print(cart)
+
+    cart.setRamOfItem(0, 16)
+    cart.setRamOfItem(1, 32)
+    cart.setRamOfItem(2, 16)  # should not change anything
+    print(cart)
