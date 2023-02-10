@@ -117,12 +117,11 @@ class ShoppingCart():
         """
         Sets the ram of the item at the given index to the given value.
         """
-        if index < len(self.items):
-            item = self.items[index]
-            oldPrice = item.getPrice()
-            item.setRam(ram)
-            newPrice = item.getPrice()
-            self.total = self.total - oldPrice + newPrice
+        item = self.items[index]
+        oldPrice = item.getPrice()
+        item.setRam(ram)
+        newPrice = item.getPrice()
+        self.total = self.total - oldPrice + newPrice
 
     def __str__(self):
         output = "Shopping cart contains:\n"
