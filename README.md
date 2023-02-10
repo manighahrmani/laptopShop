@@ -17,4 +17,4 @@ A simple GUI for a laptop shop written in Python and using Tkinter.
     * Open the folder that contains the code in your IDE (e.g. PyCharm, Visual Studio Code, etc.) and run the `frontend.py` file.  
     * Open the command line and navigate to the directory that contains the repository using the `cd` command. Then, run the following command:
   
-          python frontend.py
+          python3 frontend.py
