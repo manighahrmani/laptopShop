@@ -159,6 +159,3 @@ def testShoppingCart():
     cart.setRamOfItem(1, 32)
     cart.setRamOfItem(2, 16)
     print(cart)
-
-
-testShoppingCart()
