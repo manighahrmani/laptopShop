@@ -49,10 +49,9 @@ class Laptop():
         Sets the ram of the laptop to the given value.
         The price is updated to include the cost of the newRam.
         """
-        if newRam in ramOptions:
-            self.ram = newRam
-            costOfRam = ramOptions[newRam]
-            self.price = self.basePrice + costOfRam
+        self.ram = newRam
+        costOfRam = ramOptions[newRam]
+        self.price = self.basePrice + costOfRam
 
     def __str__(self):
         output = "{} {}".format(self.brand, self.model)
