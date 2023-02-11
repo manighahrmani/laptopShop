@@ -1,4 +1,4 @@
-# laptopShop (for Practical 14 - purposefully broken!)
+# laptopShop with errors (for Practical 14 - ⚠️itentionally broken!⚠️)
 This is a copy of the original repository for the laptop shop project. It has been modified to contain several bugs and errors. The purpose of this repository is to be used in practical 14 of the Programming module.
 
 ## Requirements
