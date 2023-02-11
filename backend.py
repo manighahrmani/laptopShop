@@ -49,9 +49,10 @@ class Laptop():
         Sets the ram of the laptop to the given value.
         The price is updated to include the cost of the newRam.
         """
-        self.ram = newRam
-        costOfRam = ramOptions[newRam]
-        self.price = self.basePrice + costOfRam
+        if newRam in ramOptions:
+            self.ram = newRam
+            costOfRam = ramOptions[newRam]
+            self.price = self.basePrice + costOfRam
 
     def __str__(self):
         output = "{} {}".format(self.brand, self.model)
@@ -108,8 +109,7 @@ class ShoppingCart():
         The laptop is created using the given brand, model and base price.
         """
         newLaptop = Laptop(brand, model, basePrice)
-        self.items.append(newLaptop)
-        self.total = self.total + newLaptop.getPrice()
+        self.addItem(newLaptop)
 
     def setRamOfItem(self, index, ram):
         """
@@ -160,3 +160,6 @@ def testShoppingCart():
     cart.setRamOfItem(1, 32)
     cart.setRamOfItem(2, 16)
     print(cart)
+
+
+testShoppingCart()
