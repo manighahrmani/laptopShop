@@ -151,7 +151,7 @@ def testShoppingCart():
     Tests the ShoppingCart class.
     """
     cart = ShoppingCart()
-    cart.addLaptop("Dell", "XPS 13", 999.99)
+    cart.addLaptop("HP", "Pavillion", 649.99)
     cart.addLaptop("Apple", "MacBook Pro", 1499.99)
     print(cart)
 
