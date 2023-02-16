@@ -67,7 +67,7 @@ class ShoppingCart():
     The total price is the sum of the prices of the items.
     """
 
-    def init(self):
+    def __init__(self):
         self.items = []
         self.total = 0
 
@@ -100,6 +100,8 @@ class ShoppingCart():
         Adds the given item to the cart.
         """
         self.items.append(item)
+        print("item.getPrice() was: {} and self.total was: {}".format(
+            item.getPrice(), self.total))
         self.total = self.total + item.getPrice()
 
     def addLaptop(self, brand, model, basePrice):
@@ -107,8 +109,7 @@ class ShoppingCart():
         Adds a new laptop to the cart.
         The laptop is created using the given brand, model and base price.
         """
-        newLaptop = Laptop(brand, model, basePrice)
-        self.addItem(newLaptop)
+        self.addItem(Laptop(brand, basePrice, model))
 
     def setRamOfItem(self, index, ram):
         """
@@ -159,3 +160,6 @@ def testShoppingCart():
     cart.setRamOfItem(1, 32)
     cart.setRamOfItem(2, 16)
     print(cart)
+
+
+testShoppingCart()
