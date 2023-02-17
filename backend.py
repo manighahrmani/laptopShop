@@ -100,8 +100,6 @@ class ShoppingCart():
         Adds the given item to the cart.
         """
         self.items.append(item)
-        print("item.getPrice() was: {} and self.total was: {}".format(
-            item.getPrice(), self.total))
         self.total = self.total + item.getPrice()
 
     def addLaptop(self, brand, model, basePrice):
