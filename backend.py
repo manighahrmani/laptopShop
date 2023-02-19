@@ -107,7 +107,7 @@ class ShoppingCart():
         Adds a new laptop to the cart.
         The laptop is created using the given brand, model and base price.
         """
-        self.addItem(Laptop(brand, basePrice, model))
+        self.addItem(Laptop(brand, model, basePrice))
 
     def setRamOfItem(self, index, ram):
         """
@@ -154,9 +154,13 @@ def testShoppingCart():
     cart.addLaptop("Apple", "MacBook Pro", 1499.99)
     print(cart)
 
-    cart.setRamOfItem(0, 16)
-    cart.setRamOfItem(1, 32)
-    cart.setRamOfItem(2, 16)
+    productIndex = 0
+
+    while productIndex < cart.getCartLength():
+        cart.setRamOfItem(productIndex, 16)
+        productIndex += 1
+
+    cart.setRamOfItem(productIndex, 32)
     print(cart)
 
 
