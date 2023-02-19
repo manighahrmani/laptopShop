@@ -59,8 +59,10 @@ def listProducts():
         configBtn = Button(mainWin, text="Configure", command=configCmd)
         configBtn.grid(row=productIndex + 1, column=1, padx=10, pady=5)
 
+        productIndex += 1
+
     totalLabel = Label(mainWin, text="Total: £{:.2f}".format(cart.getTotal()))
-    totalLabel.grid(row=numberOfProds + 1, column=0,
+    totalLabel.grid(row=numberOfProds + 2, column=0,
                     padx=15, pady=10, sticky="w")
     totalLabel.config(font=("TkDefaultFont", 12, "bold"))
 
