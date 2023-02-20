@@ -123,7 +123,7 @@ class ShoppingCart():
         output = "Shopping cart contains:\n"
         for item in self.items:
             output += "{}\n".format(item)
-        output += "Total: £{:.2f}".format(self.total)
+            output += "Total: £{:.2f}".format(self.total)
         return output
 
 
